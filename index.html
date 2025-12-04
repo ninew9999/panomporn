@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สุขสันต์วันพ่อ</title>
+    <style>
+        /* ตั้งค่าพื้นฐาน */
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* กล่องการ์ด */
+        .card-container {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            /* overflow: hidden; เอาออกเพื่อให้เห็นขอบมนของรูปภาพด้านบนชัดเจน */
+            text-align: center;
+            position: relative;
+            border: 2px solid #FFD700; /* ขอบสีทอง */
+        }
+
+        /* --- ส่วนที่แก้ไข: ส่วนหัวภาพ --- */
+        .header-img {
+            height: 220px; /* เพิ่มความสูงเล็กน้อยเพื่อให้รูปดูเด่นขึ้น */
+            
+            /* ใส่ลิงก์รูปภาพของคุณตรงนี้ในวงเล็บ url('...') */
+            background-image: url('1.jpg'); 
+            
+            /* คำสั่งจัดวางรูปภาพให้เต็มกรอบสวยงาม */
+            background-size: cover; 
+            background-position: center center;
+            background-repeat: no-repeat;
+
+            /* ทำให้มุมบนของรูปภาพโค้งมนรับกับกรอบการ์ด */
+            border-radius: 18px 18px 0 0; 
+            
+            /* ลบการตั้งค่าเดิมที่ไม่จำเป็นออก (สีพื้นหลัง, การจัดเรียงอิโมจิ) */
+            /* display: flex; */
+            /* justify-content: center; */
+            /* align-items: center; */
+            /* font-size: 5rem; */
+            /* color: white; */
+        }
+
+        /* เนื้อหาข้อความ */
+        .content {
+            padding: 30px 20px;
+        }
+
+        h1 {
+            color: #b8860b; /* สีทองเข้ม */
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        /* พื้นที่สำหรับข้อความที่ซ่อนอยู่ */
+        .hidden-message {
+            display: none;
+            background-color: #fff9c4;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 1s;
+        }
+
+        /* ปุ่มกด */
+        .btn-love {
+            background-color: #FFD700;
+            color: #333;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Prompt', sans-serif;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-love:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+        }
+
+        .heart-icon {
+            color: red;
+            font-size: 1.2rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 20px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="card-container">
+        <div class="header-img"></div>
+
+        <div class="content">
+            <h1>Happy Father's Day</h1>
+            <p>
+                สุขสันต์วันพ่อ <br>
+                ขอให้พ่อสุขภาพแข็งแรง อยู่กับ ปุณซ์กับพี่เนยนานๆ ลำบากด้วยกันมาเยอะแล้ว เดี๋ยวจะสบายแล้วพ่อดูแลสุขภาพดีๆ อยู่แบบมีทุกอย่างไปด้วยกันนานๆนะพ่อ
+            </p>
+
+            <button class="btn-love" onclick="showMessage()">
+                คลิกเพื่อบอกรักพ่อ <span class="heart-icon">❤️</span>
+            </button>
+
+            <div id="msgBox" class="hidden-message">
+                <strong>จากพี่เนยและปุณซ์</strong><br>
+                "รักพ่อมากๆนะ"
+            </div>
+
+            <div class="footer">
+                5 ธันวาคม 2568
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showMessage() {
+            var msgBox = document.getElementById("msgBox");
+            var btn = document.querySelector(".btn-love");
+            
+            // แสดงข้อความ
+            msgBox.style.display = "block";
+            
+            // ซ่อนปุ่มหลังจากกดแล้ว
+            btn.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>
